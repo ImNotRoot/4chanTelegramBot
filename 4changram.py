@@ -30,5 +30,9 @@ def main(args):
 	return 0
 
 if __name__ == '__main__':
-    import sys
-    sys.exit(main(sys.argv))
+	import sys
+	sys.exit(main(sys.argv))
+	archivoToken = open("token.txt","r")
+	TOKEN = archivoToken.readline()
+	print(TOKEN)
+	
