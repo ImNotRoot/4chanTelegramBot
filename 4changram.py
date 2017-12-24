@@ -4,7 +4,9 @@
 import telebot
 import os
 
-TOKEN=""
+archivoToken = open("token.txt","r")
+TOKEN = archivoToken.readline()
+archivoToken.close()
 
 tb = telebot.TeleBot(TOKEN)
 
@@ -25,6 +27,7 @@ def listener(messages):
 		sendMsg(message.chat.id,message.text)
 
 def main(args):
+	print("Token: " + TOKEN)
 	tb.set_update_listener(listener)
 	tb.polling()
 	return 0
@@ -32,7 +35,5 @@ def main(args):
 if __name__ == '__main__':
 	import sys
 	sys.exit(main(sys.argv))
-	archivoToken = open("token.txt","r")
-	TOKEN = archivoToken.readline()
-	print(TOKEN)
+	
 	
