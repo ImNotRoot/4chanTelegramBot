@@ -3,6 +3,8 @@
 
 import telebot
 import os
+from four_chan_api import getBoardList
+
 
 archivoToken = open("token.txt","r")
 TOKEN = archivoToken.readline()
@@ -24,7 +26,10 @@ def listener(messages):
 	for message in messages:
 		print message.text
 		print message
-		sendMsg(message.chat.id,message.text)
+		if message.text == "/boards":
+			for board in getBoardList():
+				sendMsg(message.chat.id,board)
+		#sendMsg(message.chat.id,message.text)
 
 def main(args):
 	print("Token: " + TOKEN)
