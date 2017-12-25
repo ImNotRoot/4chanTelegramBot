@@ -14,7 +14,7 @@ tb = telebot.TeleBot(TOKEN)
 
 def sendMsg(chatId,text):
 	root=tb.send_message(chatId,text)
-	print root.message_id
+	#print root.message_id
 	#another=tb.send_photo(chatId,open("a.png","rb"),reply_to_message_id=root.message_id)
 	#img=open("a.png","rb")
 	#tb.reply_to(root,img)
@@ -25,13 +25,14 @@ def sendImg(chatId,image):
 def listener(messages):
 	for message in messages:
 		print message.text
-		print message
+		#print message
 		if message.text == "/boards":
 			boardsString = ""
 			for board in getBoardList():
 				boardsString += board + "\n"
-			sendMsg(message.chat.id,boardsString)
-		#sendMsg(message.chat.id,message.text)
+			sendMsg(message.chat.id, boardsString)
+
+		
 
 def main(args):
 	print("Token: " + TOKEN)
