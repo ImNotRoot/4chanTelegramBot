@@ -27,8 +27,10 @@ def listener(messages):
 		print message.text
 		print message
 		if message.text == "/boards":
+			boardsString = ""
 			for board in getBoardList():
-				sendMsg(message.chat.id,board)
+				boardsString += board + "\n"
+			sendMsg(message.chat.id,boardsString)
 		#sendMsg(message.chat.id,message.text)
 
 def main(args):
